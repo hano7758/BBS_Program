@@ -15,6 +15,6 @@ public partial class Controls_SiteFooter : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
         int year = DateTime.Now.Year;
-        lblCopyright.Text = "版权所有&copy;2005-" + year + "上海威迅天达软件专修学院";
+        lblCopyright.Text = "版权所有&copy;2005-" + year;
     }
 }

@@ -2,7 +2,7 @@
 <table width="100%">
         <tr>
             <td width="50%">
-                <asp:HyperLink ID="lnkWishLogo" runat="server" ImageUrl="~/images/Wishlogo.bmp" 
+                <asp:HyperLink ID="lnkWishLogo" runat="server" ImageUrl="~/images/logo.jpg" 
                     NavigateUrl="~/Default.aspx">HyperLink</asp:HyperLink>
             </td>
             <td>
