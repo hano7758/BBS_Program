@@ -1,15 +1,15 @@
-create database Wish
+create database BBS_DB
 go
-use Wish
+use BBS_DB
 go
---Users±íÓÃÀ´´æ´¢ÂÛÌ³×¢²á³ÉÔ±µÄĞÅÏ¢
+--Usersè¡¨ç”¨æ¥å­˜å‚¨è®ºå›æ³¨å†Œæˆå‘˜çš„ä¿¡æ¯
 if exists(select 1 from sys.objects where name='Users'and type='U')
    drop table Users
 go
 create table Users
 (
-	UserId int identity primary key,--ÓÃ»§±àºÅ
-	UserName varchar(16) not null unique,--ÓÃ»§Ãû
+	UserId int identity primary key,--ç”¨æˆ·ç¼–å·
+	UserName varchar(16) not null unique,--ç”¨æˆ·å
 	Nickname varchar(16),
 	Password varchar(60) not null,
 	Email varchar(255),
@@ -24,34 +24,34 @@ create table Users
 go
 insert into Users values
 (
-'sunchenhao','Ëï³¿ğ©','7C-22-2F-B2-92-7D-82-8A-F2-2F-59-21-34-E8-93-24-80-63-7C-0D',
-'12312@qq.com','123456','123456','M',1,'Äú»¹Î´ÌîĞ´¸öĞÔÇ©Ãû','images/faces/89.bmp',getdate()
+'sunchenhao','å­™æ™¨çš“','7C-22-2F-B2-92-7D-82-8A-F2-2F-59-21-34-E8-93-24-80-63-7C-0D',
+'12312@qq.com','123456','123456','M',1,'æ‚¨è¿˜æœªå¡«å†™ä¸ªæ€§ç­¾å','images/faces/89.bmp',getdate()
 )
 insert into Users values
 (
-'zhaiyi','µÔÒã','7C-22-2F-B2-92-7D-82-8A-F2-2F-59-21-34-E8-93-24-80-63-7C-0D',
-'12312@qq.com','123456','123456','F',1,'Äú»¹Î´ÌîĞ´¸öĞÔÇ©Ãû','images/faces/77.bmp',getdate()
+'zhaiyi','ç¿Ÿæ¯…','7C-22-2F-B2-92-7D-82-8A-F2-2F-59-21-34-E8-93-24-80-63-7C-0D',
+'12312@qq.com','123456','123456','F',1,'æ‚¨è¿˜æœªå¡«å†™ä¸ªæ€§ç­¾å','images/faces/77.bmp',getdate()
 )
 insert into Users values
 (
-'youchangle','ÓÈ³¤ÀÖ','7C-22-2F-B2-92-7D-82-8A-F2-2F-59-21-34-E8-93-24-80-63-7C-0D',
-'12312@qq.com','123456','123456','F',1,'Äú»¹Î´ÌîĞ´¸öĞÔÇ©Ãû','images/faces/48.bmp',getdate()
+'youchangle','å°¤é•¿ä¹','7C-22-2F-B2-92-7D-82-8A-F2-2F-59-21-34-E8-93-24-80-63-7C-0D',
+'12312@qq.com','123456','123456','F',1,'æ‚¨è¿˜æœªå¡«å†™ä¸ªæ€§ç­¾å','images/faces/48.bmp',getdate()
 )
 insert into Users values
 (
-'qiaobo','ÇÇ²¨','7C-22-2F-B2-92-7D-82-8A-F2-2F-59-21-34-E8-93-24-80-63-7C-0D',
-'12312@qq.com','123456','123456','M',1,'Äú»¹Î´ÌîĞ´¸öĞÔÇ©Ãû','images/faces/67.bmp',getdate()
+'qiaobo','ä¹”æ³¢','7C-22-2F-B2-92-7D-82-8A-F2-2F-59-21-34-E8-93-24-80-63-7C-0D',
+'12312@qq.com','123456','123456','M',1,'æ‚¨è¿˜æœªå¡«å†™ä¸ªæ€§ç­¾å','images/faces/67.bmp',getdate()
 )
 insert into Users values
 (
 'admin','admin','7C-22-2F-B2-92-7D-82-8A-F2-2F-59-21-34-E8-93-24-80-63-7C-0D',
-'admin@qq.com','admin','admin','F',1,'Äú»¹Î´ÌîĞ´¸öĞÔÇ©Ãû','images/faces/113.bmp',getdate()
+'admin@qq.com','admin','admin','F',1,'æ‚¨è¿˜æœªå¡«å†™ä¸ªæ€§ç­¾å','images/faces/113.bmp',getdate()
 )
 select * from Users
 --82132773
 go
 
---Categories ±íÓÃÀ´´æ´¢ÂÛÌ³°æÇøµÄÃû×ÖºÍÍ¼Ïñ
+--Categories è¡¨ç”¨æ¥å­˜å‚¨è®ºå›ç‰ˆåŒºçš„åå­—å’Œå›¾åƒ
 if exists(select 1 from sys.objects where name='Categories'and type='U')
    drop table dbo.[Categories]
 go
@@ -63,14 +63,14 @@ create table Categories
 	CategoryPosition int null
 )on [primary] 
 go
-insert into Categories values('ÍşÑ¶½ÌÓıÖĞĞÄ½»Á÷Çø','images/Forums/Forums_wish.bmp',1)
-insert into Categories values('¿ª·¢Ô°µØ','images/Forums/Forums_Development.gif',2)
-insert into Categories values('ÈÕ³£ÊÂÎñ¹ÜÀí','images/Forums/Forums_Manager.gif',3)
+insert into Categories values('å¨è®¯æ•™è‚²ä¸­å¿ƒäº¤æµåŒº','images/Forums/Forums_wish.bmp',1)
+insert into Categories values('å¼€å‘å›­åœ°','images/Forums/Forums_Development.gif',2)
+insert into Categories values('æ—¥å¸¸äº‹åŠ¡ç®¡ç†','images/Forums/Forums_Manager.gif',3)
 select * from Categories
 
 go
 
---Forums ±í´æ´¢ÓĞ¹ØÌØ¶¨ÂÛÌ³µÄĞÅÏ¢£¬ÒÔ¼°ËûÃÇÓë¸¸°æÇøµÄ¹ØÏµ
+--Forums è¡¨å­˜å‚¨æœ‰å…³ç‰¹å®šè®ºå›çš„ä¿¡æ¯ï¼Œä»¥åŠä»–ä»¬ä¸çˆ¶ç‰ˆåŒºçš„å…³ç³»
 if exists(select 1 from sys.objects where name='Forums'and type='U')
    drop table dbo.[Forums]
 go
@@ -84,18 +84,18 @@ create table Forums
 	ForumPosition int null	
 )on [primary]
 go
-insert into Forums values(1,'Ğì»ãÖĞĞÄ','Ñ§Ô±ÁÄÌìÌÖÂÛ¹àË®Çø',1)
-insert into Forums values(1,'ĞÂ¿ÍÕ¾ÖĞĞÄ','Ñ§Ô±ÁÄÌìÌÖÂÛ¹àË®Çø',2)
-insert into Forums values(1,'ÆÖ¶«ÖĞĞÄ','Ñ§Ô±ÁÄÌìÌÖÂÛ¹àË®Çø',3)
-insert into Forums values(2,'.NETÂÛÌ³','C#¡¢ASP.NET¡¢VB.NET¡¢Web Services ',1)
-insert into Forums values(2,'JAVAÂÛÌ³','J2ME¡¢J2SE¡¢J2EE¡¢EJB¡¢Structs¡¢Spring',2)
-insert into Forums values(2,'Web¿ª·¢','ASP¡¢Ajax¡¢JSP¡¢PHP¡¢Javascript¡¢CSS',3)
-insert into Forums values(2,'Êı¾İ¿âÂÖÂÛÌ³','Oracle¡¢SQL Server¡¢XML¡¢MySQL¡¢PB¡¢ACCESS',4)
-insert into Forums values(3,'ÂÛÌ³ÊÂÎñ','°æÎñÓë¹«¸æ¡¢Ìû×Ó²éÑ¯¡¢»Ø¸´²éÑ¯¡¢Òâ¼ûºÍ½¨Òé',1)
+insert into Forums values(1,'å¾æ±‡ä¸­å¿ƒ','å­¦å‘˜èŠå¤©è®¨è®ºçŒæ°´åŒº',1)
+insert into Forums values(1,'æ–°å®¢ç«™ä¸­å¿ƒ','å­¦å‘˜èŠå¤©è®¨è®ºçŒæ°´åŒº',2)
+insert into Forums values(1,'æµ¦ä¸œä¸­å¿ƒ','å­¦å‘˜èŠå¤©è®¨è®ºçŒæ°´åŒº',3)
+insert into Forums values(2,'.NETè®ºå›','C#ã€ASP.NETã€VB.NETã€Web Services ',1)
+insert into Forums values(2,'JAVAè®ºå›','J2MEã€J2SEã€J2EEã€EJBã€Structsã€Spring',2)
+insert into Forums values(2,'Webå¼€å‘','ASPã€Ajaxã€JSPã€PHPã€Javascriptã€CSS',3)
+insert into Forums values(2,'æ•°æ®åº“è½®è®ºå›','Oracleã€SQL Serverã€XMLã€MySQLã€PBã€ACCESS',4)
+insert into Forums values(3,'è®ºå›äº‹åŠ¡','ç‰ˆåŠ¡ä¸å…¬å‘Šã€å¸–å­æŸ¥è¯¢ã€å›å¤æŸ¥è¯¢ã€æ„è§å’Œå»ºè®®',1)
 select * from Forums
 
 go
---Topics ±í´æ´¢ÁËÓĞ¹ØÌØ¶¨ÂÛÌ³µÄËùÓĞÖ÷Ìâ£¬ÒÔ¼°ËûÃÇÓë¸¸°æÇøµÄ¹ØÏµ
+--Topics è¡¨å­˜å‚¨äº†æœ‰å…³ç‰¹å®šè®ºå›çš„æ‰€æœ‰ä¸»é¢˜ï¼Œä»¥åŠä»–ä»¬ä¸çˆ¶ç‰ˆåŒºçš„å…³ç³»
 if exists(select 1 from sys.objects where name='Topics'and type='U')
    drop table dbo.[Topics]
 go
@@ -112,16 +112,16 @@ create table Topics
 	AddedDate datetime not null default (getdate())
 ) on [primary] textimage_on[primary]
 go
-insert into Topics values(1,'ÈÕ±¾´óµØÕğ','ÈÕ±¾±¾Öİµº¸½½ü·¢Éú9.0¼¶´óµØÕğ',1,'192.168.0.151',getdate())
-insert into Topics values(1,'·¨¹ú³ö»÷º½¿ÕÄ¸½¢','·¨¹ú½«º½¿ÕÄ¸½¢¡°´÷¸ßÀÖºÅ¡±¿ª½øµØÖĞº£×¼±¸¿ÕÏ®Àû±ÈÑÇ',1,'192.168.0.55',getdate())
-insert into Topics values(1,'·¨¹ú³ö»÷º½¿ÕÄ¸½¢','·¨¹ú½«º½¿ÕÄ¸½¢¡°´÷¸ßÀÖºÅ¡±¿ª½øµØÖĞº£×¼±¸¿ÕÏ®Àû±ÈÑÇ',1,'192.168.0.55',getdate())
-insert into Topics values(1,'·¨¹ú³ö»÷º½¿ÕÄ¸½¢','·¨¹ú½«º½¿ÕÄ¸½¢¡°´÷¸ßÀÖºÅ¡±¿ª½øµØÖĞº£×¼±¸¿ÕÏ®Àû±ÈÑÇ',1,'192.168.0.55',getdate())
-insert into Topics values(1,'Diablo3¼´½«ÉÏÊĞ','±©Ñ©¹«Ë¾½«ÓÚ2011ÄêÏÂÑ®ÍÆ³öDiablo3',2,'192.168.0.21',getdate())
-insert into Topics values(1,'Àû±ÈÑÇ´óÉ§¶¯','Àû±ÈÑÇ½ÓÊÜ¹ú¼ÊÁªºÏ¹ú±íÊ¾Í£»ğ',3,'192.168.0.58',getdate())
+insert into Topics values(1,'æ—¥æœ¬å¤§åœ°éœ‡','æ—¥æœ¬æœ¬å·å²›é™„è¿‘å‘ç”Ÿ9.0çº§å¤§åœ°éœ‡',1,'192.168.0.151',getdate())
+insert into Topics values(1,'æ³•å›½å‡ºå‡»èˆªç©ºæ¯èˆ°','æ³•å›½å°†èˆªç©ºæ¯èˆ°â€œæˆ´é«˜ä¹å·â€å¼€è¿›åœ°ä¸­æµ·å‡†å¤‡ç©ºè¢­åˆ©æ¯”äºš',1,'192.168.0.55',getdate())
+insert into Topics values(1,'æ³•å›½å‡ºå‡»èˆªç©ºæ¯èˆ°','æ³•å›½å°†èˆªç©ºæ¯èˆ°â€œæˆ´é«˜ä¹å·â€å¼€è¿›åœ°ä¸­æµ·å‡†å¤‡ç©ºè¢­åˆ©æ¯”äºš',1,'192.168.0.55',getdate())
+insert into Topics values(1,'æ³•å›½å‡ºå‡»èˆªç©ºæ¯èˆ°','æ³•å›½å°†èˆªç©ºæ¯èˆ°â€œæˆ´é«˜ä¹å·â€å¼€è¿›åœ°ä¸­æµ·å‡†å¤‡ç©ºè¢­åˆ©æ¯”äºš',1,'192.168.0.55',getdate())
+insert into Topics values(1,'Diablo3å³å°†ä¸Šå¸‚','æš´é›ªå…¬å¸å°†äº2011å¹´ä¸‹æ—¬æ¨å‡ºDiablo3',2,'192.168.0.21',getdate())
+insert into Topics values(1,'åˆ©æ¯”äºšå¤§éªšåŠ¨','åˆ©æ¯”äºšæ¥å—å›½é™…è”åˆå›½è¡¨ç¤ºåœç«',3,'192.168.0.58',getdate())
 
 select * from Topics
 go
---Replies ±í´æ´¢ÁË´ğ¸´Ö÷ÌâËù·¢ËÍµÄĞÅÏ¢
+--Replies è¡¨å­˜å‚¨äº†ç­”å¤ä¸»é¢˜æ‰€å‘é€çš„ä¿¡æ¯
 if exists(select 1 from sys.objects where name='Replies'and type='U')
    drop table dbo.[Replies]
 go
@@ -147,7 +147,7 @@ begin
 end
 
 go
---´´½¨ÊÓÍ¼
+--åˆ›å»ºè§†å›¾
 if exists(select 1 from sys.objects where name='v_Forums'and type='V')
    drop view dbo.[v_Forums]
 go
@@ -215,9 +215,9 @@ inner join Users on Replies.UserID=Users.UserID
 
 go
 -----------
---´´½¨´æ´¢¹ı³Ì
---ÓÃ»§¹ÜÀí
---1.²åÈëÓÃ»§
+--åˆ›å»ºå­˜å‚¨è¿‡ç¨‹
+--ç”¨æˆ·ç®¡ç†
+--1.æ’å…¥ç”¨æˆ·
 if exists(select 1 from sys.objects where name='InsertUser'and type='P')
    drop procedure dbo.[InsertUser]
 go
@@ -238,7 +238,7 @@ values( @UserName,@Nickname , @Password,@Email ,@Question , @Answer,@Sex ,@Image
 set @UserID=scope_identity()
 go
 
---2.É¾³ıÓÃ»§
+--2.åˆ é™¤ç”¨æˆ·
 if exists(select 1 from sys.objects where name='DeleteUser'and type='P')
    drop procedure dbo.[DeleteUser]
 go
@@ -248,7 +248,7 @@ as
 	delete from Users where UserID=@UserID
 go
 
---3.¸üĞÂÓÃ»§Email
+--3.æ›´æ–°ç”¨æˆ·Email
 if exists(select 1 from sys.objects where name='UpdateUserEmail'and type='P')
    drop procedure UpdateUserEmail
 go
@@ -261,7 +261,7 @@ as
 	where UserID=@UserID
 go
 
---4.ÑéÖ¤µÇÂ¼
+--4.éªŒè¯ç™»å½•
 if exists(select 1 from sys.objects where name='ValidateLogin'and type='P')
    drop procedure dbo.[ValidateLogin]
 go
@@ -272,7 +272,7 @@ as
 	select UserID from Users where UserName=@UserName and Password=@CryptPassword
 
 go
---5.·µ»ØËùÓĞ¿ÉÓÃÓÃ»§ĞÅÏ¢
+--5.è¿”å›æ‰€æœ‰å¯ç”¨ç”¨æˆ·ä¿¡æ¯
 if exists(select 1 from sys.objects where name='GetUsers'and type='P')
    drop procedure dbo.[GetUsers]
 go
@@ -283,7 +283,7 @@ ImageUrl,AddedDate
 from Users
 
 go
---6.¸ù¾İÓÃ»§ÃûµÃµ½ÓÃ»§id
+--6.æ ¹æ®ç”¨æˆ·åå¾—åˆ°ç”¨æˆ·id
 if exists(select 1 from sys.objects where name='GetUserIDByUserName'and type='P')
    drop procedure dbo.[GetUsers]
 go
@@ -295,7 +295,7 @@ From Users
 where UserName=@UserName
 
 go
---7.¸üĞÂÓÃ»§ĞÅÏ¢
+--7.æ›´æ–°ç”¨æˆ·ä¿¡æ¯
 if exists(select 1 from sys.objects where name='UpdateUser'and type='P')
    drop procedure dbo.[UpdateUser]
 go
@@ -313,7 +313,7 @@ as
 	where UserId=@UserId
 go
 
---8£¬¸ù¾İÓÃ»§IDµÃµ½ÓÃ»§ĞÅÏ¢
+--8ï¼Œæ ¹æ®ç”¨æˆ·IDå¾—åˆ°ç”¨æˆ·ä¿¡æ¯
 if exists(select 1 from sys.objects where name='GetUserByID'and type='P')
    drop procedure dbo.[GetUserByID]
 go
@@ -323,8 +323,8 @@ as
 	select * from Users where UserId=@UserID
 go
 
---°æÇø¹ÜÀí
---1.·µ»ØËùÓĞ¿ÉÓÃ°æÇø
+--ç‰ˆåŒºç®¡ç†
+--1.è¿”å›æ‰€æœ‰å¯ç”¨ç‰ˆåŒº
 if exists(select 1 from sys.objects where name='GetCategories'and type='P')
    drop procedure dbo.[GetCategories]
 go
@@ -335,7 +335,7 @@ order by CategoryPosition Asc,CategoryName Asc
 go
 
 
---2.µÃµ½Ö¸¶¨°æÇøµÄ°æÇøÏêÇé
+--2.å¾—åˆ°æŒ‡å®šç‰ˆåŒºçš„ç‰ˆåŒºè¯¦æƒ…
 if exists(select 1 from sys.objects where name='GetCategoryDetails'and type='P')
    drop procedure dbo.[GetCategoryDetails]
 go
@@ -347,7 +347,7 @@ where CategoryID=@CategoryID
 go
 
 
---3.²åÈëÒ»¸öĞÂµÄ°æÇø£¬£¨Èô´æÔÚ£¬Ôò·µ»Ø-1£¬·ñÔò·µ»ØĞÂ°æÇøID£©
+--3.æ’å…¥ä¸€ä¸ªæ–°çš„ç‰ˆåŒºï¼Œï¼ˆè‹¥å­˜åœ¨ï¼Œåˆ™è¿”å›-1ï¼Œå¦åˆ™è¿”å›æ–°ç‰ˆåŒºIDï¼‰
 if exists(select 1 from sys.objects where name='InsertCategory'and type='P')
    drop procedure dbo.[InsertCategory]
 go
@@ -357,10 +357,10 @@ create procedure InsertCategory
 	@CategoryPosition int,
 	@CategoryID int output
 as
-declare @CurrID int --¼ì²é´Ë°æ¿éÊÇ·ñ´æÔÚ
+declare @CurrID int --æ£€æŸ¥æ­¤ç‰ˆå—æ˜¯å¦å­˜åœ¨
 select @CurrID=CategoryID
 from Categories
-where CategoryName=@CategoryName --Èç¹û²»´æÔÚ£¬ÔòÌí¼Ó
+where CategoryName=@CategoryName --å¦‚æœä¸å­˜åœ¨ï¼Œåˆ™æ·»åŠ 
 if @CurrID is null
 	begin
 		insert into Categories
@@ -374,7 +374,7 @@ else
 	end
 go
 
---4.¸üĞÂÖ¸¶¨°æÇøµÄËùÓĞĞÅÏ¢
+--4.æ›´æ–°æŒ‡å®šç‰ˆåŒºçš„æ‰€æœ‰ä¿¡æ¯
 if exists(select 1 from sys.objects where name='UpdateCategory'and type='P')
    drop procedure dbo.[UpdateCategory]
 go
@@ -390,7 +390,7 @@ as
 	where CategoryID=@categoryID
 go
 
---5.É¾³ıÖ¸¶¨µÄ°æÇø
+--5.åˆ é™¤æŒ‡å®šçš„ç‰ˆåŒº
 if exists(select 1 from sys.objects where name='DeleteCategory'and type='P')
    drop procedure dbo.[DeleteCategory]
 go
@@ -402,8 +402,8 @@ where CategoryID=@CategoryID
 go
 
 
---ÂÛÌ³¹ÜÀí
---1.·µ»ØÖ¸¶¨°æÇøÏÂËùÓĞ¿ÉÓÃÂÛÌ³
+--è®ºå›ç®¡ç†
+--1.è¿”å›æŒ‡å®šç‰ˆåŒºä¸‹æ‰€æœ‰å¯ç”¨è®ºå›
 if exists(select 1 from sys.objects where name='GetForums'and type='P')
    drop procedure dbo.[GetForums]
 go
@@ -417,7 +417,7 @@ where categoryID=@categoryID
 order by ForumPosition Asc, ForumName Asc
 go
 
---2.µÃµ½Ö¸¶¨ÂÛÌ³µÄÂÛÌ³ÏêÇé
+--2.å¾—åˆ°æŒ‡å®šè®ºå›çš„è®ºå›è¯¦æƒ…
 if exists(select 1 from sys.objects where name='GetForumsDetails'and type='P')
    drop procedure dbo.[GetForumsDetails]
 go
@@ -429,7 +429,7 @@ where ForumID=@ForumID
 go
 
 
---3.²åÈëÒ»¸öĞÂµÄÂÛÌ³£¨Èô´æÔÚ£¬·µ»Ø-1£¬·ñÔò·µ»ØĞÂÂÛÌ³µÄID£©
+--3.æ’å…¥ä¸€ä¸ªæ–°çš„è®ºå›ï¼ˆè‹¥å­˜åœ¨ï¼Œè¿”å›-1ï¼Œå¦åˆ™è¿”å›æ–°è®ºå›çš„IDï¼‰
 if exists(select 1 from sys.objects where name='InsertForum'and type='P')
    drop procedure dbo.[InsertForum]
 go
@@ -440,10 +440,10 @@ create procedure InsertForum
 	@ForumPosition int,
 	@ForumID int output
 as
-declare @CurrID int --¼ì²é´ËÂÛÌ³ÊÇ·ñ´æÔÚ
+declare @CurrID int --æ£€æŸ¥æ­¤è®ºå›æ˜¯å¦å­˜åœ¨
 select @CurrID=ForumID
 from Forums
-where ForumName=@ForumName and CategoryID=@CategoryID --Èç¹û²»´æÔÚ£¬ÔòÌí¼Ó
+where ForumName=@ForumName and CategoryID=@CategoryID --å¦‚æœä¸å­˜åœ¨ï¼Œåˆ™æ·»åŠ 
 if @CurrID is null
 	begin
 		insert into Forums
@@ -458,7 +458,7 @@ else
 go
 
 
---4.¸üĞÂÖ¸¶¨ÂÛÌ³µÄËùÓĞĞÅÏ¢
+--4.æ›´æ–°æŒ‡å®šè®ºå›çš„æ‰€æœ‰ä¿¡æ¯
 if exists(select 1 from sys.objects where name='UpdateForum'and type='P')
    drop procedure dbo.[UpdateForum]
 go
@@ -475,7 +475,7 @@ ForumPosition=@ForumPosition,CategoryID=@CategoryID
 where ForumID=@ForumID
 go
 
---5.É¾³ıÖ¸¶¨µÄÂÛÌ³
+--5.åˆ é™¤æŒ‡å®šçš„è®ºå›
 if exists(select 1 from sys.objects where name='DeleteForum'and type='P')
    drop procedure dbo.[DeleteForum]
 go
@@ -486,7 +486,7 @@ delete from Forums
 where ForumID=@ForumID
 go
 
---6.¸ù¾İÌõ¼şµÃµ½Ö÷Ìâ
+--6.æ ¹æ®æ¡ä»¶å¾—åˆ°ä¸»é¢˜
 if exists(select 1 from sys.objects where name='GetTopicsByCondition'and type='P')
    drop procedure dbo.[GetTopicsByCondition]
 go
@@ -528,8 +528,8 @@ exec sp_executesql @sql
 go
 
 
---Ö÷Ìâ¹ÜÀí
---1.µÃµ½Ö÷Ìâ
+--ä¸»é¢˜ç®¡ç†
+--1.å¾—åˆ°ä¸»é¢˜
 if exists(select 1 from sys.objects where name='GetTopics' and type='P')
    drop procedure GetTopics
 go
@@ -540,7 +540,7 @@ select * from v_Topics where ForumID=@ForumID
 go
 
 
---2.É¾³ıÖ÷Ìâ
+--2.åˆ é™¤ä¸»é¢˜
 if exists(select 1 from sys.objects where name='DeleteTopics' and type='P')
    drop procedure DeleteTopics
 go
@@ -551,7 +551,7 @@ delete from Topics where TopicID=@TopicID
 go
 
 
---1.¸üĞÂÃÜÂë
+--1.æ›´æ–°å¯†ç 
 if exists(select 1 from sys.objects where name='UpdatePassword'and type='P')
    drop procedure dbo.[UpdatePassword]
 go
@@ -565,7 +565,7 @@ go
 go
 
 
---2.ÑéÖ¤ÌáÊ¾ÎÊÌâ
+--2.éªŒè¯æç¤ºé—®é¢˜
 if exists(select 1 from sys.objects where name='ValidateQuestion'and type='P')
    drop procedure dbo.[ValidateQuestion]
 go
@@ -598,7 +598,7 @@ select * from v_Topics where TopicID=@TopicID
 
 go
 
---GetUsersIDByUserName¸ù¾İÓÃ»§ÃûµÃµ½ÓÃID
+--GetUsersIDByUserNameæ ¹æ®ç”¨æˆ·åå¾—åˆ°ç”¨ID
 if exists (select 1 from sys.all_objects where name = 'GetUsersIDByUserName' and type = 'P')
 	drop procedure GetUsersIDByUserName
 go
@@ -608,7 +608,7 @@ as
 	select userID from Users where userName = @username
 go
 
---²åÈë»Ø¸´InsertReply
+--æ’å…¥å›å¤InsertReply
 if exists (select 1 from sys.all_objects where name = 'InsertReply' and type = 'P')
 	drop procedure InsertReply
 go
@@ -626,7 +626,7 @@ as
 
 go
 
---µÃµ½»Ø¸´GetReplies
+--å¾—åˆ°å›å¤GetReplies
 if exists (select 1 from sys.all_objects where name = 'GetReplies' and type = 'P')
 	drop procedure GetReplies
 go
@@ -636,7 +636,7 @@ as
 	select * from V_Replies where TopicID=@topicID order by ReplyID
 go
 
---¸ù¾İÌõ¼şµÃµ½»Ø¸´GetRepliesDetails
+--æ ¹æ®æ¡ä»¶å¾—åˆ°å›å¤GetRepliesDetails
 if exists (select 1 from sys.all_objects where name = 'GetRepliesDetails' and type = 'P')
 	drop procedure GetRepliesDetails
 go
@@ -646,7 +646,7 @@ as
 	select * from V_Replies where ReplyID=@ReplyID
 go
 
---·¢ÌûInsertTopic
+--å‘å¸–InsertTopic
 if exists (select 1 from sys.all_objects where name = 'InsertTopic' and type = 'P')
 	drop procedure InsertTopic
 go
@@ -666,19 +666,19 @@ go
 
 
 declare @aa int
-exec InsertReply 1,1,'·´¶Ô¹Åµä·ç¸ñÊÇ´ó·½¿ªÀÊ',3,'12342543546',@aa output
-exec InsertReply 1,1,'´ó·½ËµµÄÊÇºË·¢¹æ»®',3,'12342543546',@aa output
-exec InsertReply 1,1,'ºó¸Ğ¾õ¹æ·¶»¯',3,'12342543546',@aa output
-exec InsertReply 1,2,'b´Óvf´ó·¨¹Ù',2,'12342543546',@aa output
-exec InsertReply 1,2,'æ¾Å®·ç¸ñ µØ·½',4,'12342543546',@aa output
-exec InsertReply 1,3,'¹Åµä·ç¸ñÊ¿´ó·ò¶øÎŞ·Å´ó',1,'12342543546',@aa output
-exec InsertReply 1,1,'Í¬ÒâÈÈÍÁ¶îÍâÈË',2,'12342543546',@aa output
-exec InsertReply 1,1,'¹æ·¶»¯¶Ô·½¹«Ë¾',3,'12342543546',@aa output
-exec InsertReply 1,1,'·´¶Ô¹Åµä·ç¸ñÊÇ´ó·½¿ªÀÊ',4,'12342543546',@aa output
-exec InsertReply 1,1,'´ó·½ËµµÄÊÇºË·¢¹æ»®',5,'12342543546',@aa output
-exec InsertReply 1,1,'ºó¸Ğ¾õ¹æ·¶»¯',2,'12342543546',@aa output
-exec InsertReply 1,2,'b´Óvf´ó·¨¹Ù',2,'12342543546',@aa output
-exec InsertReply 1,2,'æ¾Å®·ç¸ñ µØ·½',4,'12342543546',@aa output
-exec InsertReply 1,3,'¹Åµä·ç¸ñÊ¿´ó·ò¶øÎŞ·Å´ó',4,'12342543546',@aa output
-exec InsertReply 1,1,'Í¬ÒâÈÈÍÁ¶îÍâÈË',3,'12342543546',@aa output
-exec InsertReply 1,1,'¹æ·¶»¯¶Ô·½¹«Ë¾',3,'12342543546',@aa output
+exec InsertReply 1,1,'åå¯¹å¤å…¸é£æ ¼æ˜¯å¤§æ–¹å¼€æœ—',3,'12342543546',@aa output
+exec InsertReply 1,1,'å¤§æ–¹è¯´çš„æ˜¯æ ¸å‘è§„åˆ’',3,'12342543546',@aa output
+exec InsertReply 1,1,'åæ„Ÿè§‰è§„èŒƒåŒ–',3,'12342543546',@aa output
+exec InsertReply 1,2,'bä»vfå¤§æ³•å®˜',2,'12342543546',@aa output
+exec InsertReply 1,2,'å©¢å¥³é£æ ¼ åœ°æ–¹',4,'12342543546',@aa output
+exec InsertReply 1,3,'å¤å…¸é£æ ¼å£«å¤§å¤«è€Œæ— æ”¾å¤§',1,'12342543546',@aa output
+exec InsertReply 1,1,'åŒæ„çƒ­åœŸé¢å¤–äºº',2,'12342543546',@aa output
+exec InsertReply 1,1,'è§„èŒƒåŒ–å¯¹æ–¹å…¬å¸',3,'12342543546',@aa output
+exec InsertReply 1,1,'åå¯¹å¤å…¸é£æ ¼æ˜¯å¤§æ–¹å¼€æœ—',4,'12342543546',@aa output
+exec InsertReply 1,1,'å¤§æ–¹è¯´çš„æ˜¯æ ¸å‘è§„åˆ’',5,'12342543546',@aa output
+exec InsertReply 1,1,'åæ„Ÿè§‰è§„èŒƒåŒ–',2,'12342543546',@aa output
+exec InsertReply 1,2,'bä»vfå¤§æ³•å®˜',2,'12342543546',@aa output
+exec InsertReply 1,2,'å©¢å¥³é£æ ¼ åœ°æ–¹',4,'12342543546',@aa output
+exec InsertReply 1,3,'å¤å…¸é£æ ¼å£«å¤§å¤«è€Œæ— æ”¾å¤§',4,'12342543546',@aa output
+exec InsertReply 1,1,'åŒæ„çƒ­åœŸé¢å¤–äºº',3,'12342543546',@aa output
+exec InsertReply 1,1,'è§„èŒƒåŒ–å¯¹æ–¹å…¬å¸',3,'12342543546',@aa output
